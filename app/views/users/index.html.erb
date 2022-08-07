@@ -7,21 +7,22 @@
       <table class="table table-hover table-inverse">
         <thead>
           <tr>
-            <th col-6>image</th>
-            <th col-8>name</th>
+            <th>image</th>
+            <th>name</th>
             <th colspan="3"></th>
           </tr>
         </thead>
+
         <tbody>
       <% @users.each do |user| %>
         <tr>
-          <td colspan="">
+          <td>
             <%= image_tag user.get_profile_image(80, 80) %>
           </td>
-          <td colspan="">
+          <td>
            <%= user.name %>
           </td>
-          <td colspan="">
+          <td>
             <%= link_to "Show", user_path(user.id) %>
           </td>
         </tr>
