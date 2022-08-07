@@ -1,0 +1,26 @@
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1>Editing Book</h1>
+      <% if @book.errors.any? %>
+        <h3><%= @book.errors.count %> errors prohibited this obj from being saved:</h3>
+          <ul>
+            <% @book.errors.full_messages.each do |messeage| %>
+            <li><%= messeage %></li>
+            <% end %>
+          </ul>
+      <% end %>
+      <%= form_with model: @book do |f| %>
+        <label for="book_title">Title</label></br>
+        <%= f.text_field :title, class: "form-control mb-3" %>
+        <label for="book_opinion">Opinion</label></br>
+        <%= f.text_area :body, class: "form-control mb-3" %>
+        <%= f.submit "Update Book", class: "btn btn-success mb-3" %> <!--mt-2余白-->
+      <% end %>
+      <%= link_to "Show", book_path(@book.id) %>
+      |
+      <%= link_to "Back", books_path %>
+    </div>
+  </div>
+</div>
