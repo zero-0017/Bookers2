@@ -9,8 +9,10 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
 
-  validates :name, length: { in: 2..20 }, uniqueness: true
-  validates :introduction, length: { maximum: 50 }
+  validates :name, length: { in: 2..20 },#length = 文字数の制限を設定。　文字の長さの範囲を2-20文字
+  uniqueness: true# 一意性を保つバリデーションの実装
+
+  validates :introduction, length: { maximum: 50 }# maximum = 文字数の下限を50文字に設定
 
   def get_profile_image(width, height)
     unless profile_image.attached?
